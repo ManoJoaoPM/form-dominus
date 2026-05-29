@@ -1,13 +1,11 @@
-FROM node:20-alpine
+# Etapa 1: Build da aplicação
+FROM node:20-alpine AS builder
 
-# Define o diretório de trabalho
 WORKDIR /app
 
 # Copia os arquivos de dependência
 COPY package*.json ./
-
-# Instala as dependências (incluindo as de desenvolvimento necessárias pro build)
-RUN npm install
+RUN npm ci
 
 # Copia o restante do código
 COPY . .
@@ -15,8 +13,17 @@ COPY . .
 # Faz o build do front-end Vite
 RUN npm run build
 
-# Expõe a porta que o Easypanel usará
-EXPOSE 3000
+# Etapa 2: Servidor Nginx
+FROM nginx:alpine
 
-# Comando para iniciar o servidor Node.js
-CMD ["node", "server.js"]
+# Copia as configurações do Nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copia os arquivos gerados no build para a pasta pública do Nginx
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Expõe a porta padrão do Nginx (80)
+EXPOSE 80
+
+# Comando para iniciar o Nginx
+CMD ["nginx", "-g", "daemon off;"]
