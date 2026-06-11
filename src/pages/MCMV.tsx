@@ -20,14 +20,17 @@ export default function MCMV() {
               Especialistas em MCMV
             </span>
             
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-display font-black leading-[0.95] text-dominus-text uppercase mb-6 tracking-tight">
-              Escale suas <br className="hidden md:block" />
-              <span className="text-dominus-accent">vendas</span> no <br className="hidden md:block" />
-              Minha Casa Minha Vida.
-            </h2>
+            <div className="flex flex-col md:flex-row md:items-center gap-8 mb-6">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-display font-black leading-[0.95] text-dominus-text uppercase tracking-tight">
+                Escale suas <br className="hidden md:block" />
+                <span className="text-dominus-accent">vendas</span> no <br className="hidden md:block" />
+                Minha Casa Minha Vida.
+              </h2>
+              <img src="/logo-mcmv-2023.webp" alt="Minha Casa Minha Vida" className="w-32 md:w-40 lg:w-48 object-contain" />
+            </div>
             
             <p className="mt-8 text-dominus-muted font-sans font-light max-w-xl text-lg md:text-xl leading-relaxed">
-              Sabemos que volume e qualificação andam juntos no segmento econômico. Responda com calma para entendermos como podemos acelerar seus resultados.
+              Escritório especializado em MCMV, preencha o formulário que nosso time entrará em contato com você.
             </p>
 
             <button 

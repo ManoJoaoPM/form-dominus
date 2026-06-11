@@ -27,7 +27,7 @@ export default function AltoPadrao() {
             </h2>
             
             <p className="mt-8 text-dominus-muted font-sans font-light max-w-xl text-lg md:text-xl leading-relaxed">
-              No mercado de luxo, o posicionamento é tudo. Responda com calma para entendermos como podemos elevar a percepção da sua imobiliária.
+              Escritório especializado em alto padrão, preencha o formulário que nosso time entrará em contato com você.
             </p>
 
             <button 
