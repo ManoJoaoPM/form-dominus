@@ -14,19 +14,19 @@ export default function MCMV() {
   return (
     <Layout>
       {!started ? (
-        <div className="flex-1 flex flex-col justify-center px-6 md:px-16 relative z-10 animate-fade-in-up">
-          <div className="max-w-3xl w-full mx-auto md:mx-0 md:ml-[10%] lg:ml-[15%] text-left">
-            <span className="text-sm md:text-base tracking-[0.2em] font-sans text-dominus-accent uppercase font-bold mb-4 block">
+        <div className="flex-1 flex flex-col justify-center px-6 md:px-16 relative z-10 animate-fade-in-up overflow-hidden">
+          <div className="max-w-3xl w-full mx-auto md:mx-0 md:ml-[10%] lg:ml-[15%] text-left relative">
+            <span className="text-sm md:text-base tracking-[0.2em] font-sans text-dominus-accent uppercase font-bold mb-4 block relative z-10">
               Especialistas em MCMV
             </span>
             
-            <div className="flex flex-col md:flex-row md:items-center gap-8 mb-6">
-              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-display font-black leading-[0.95] text-dominus-text uppercase tracking-tight">
+            <div className="relative mb-6">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-display font-black leading-[0.95] text-dominus-text uppercase tracking-tight relative z-10 max-w-[80%] md:max-w-[70%] lg:max-w-[65%]">
                 Escale suas <br className="hidden md:block" />
                 <span className="text-dominus-accent">vendas</span> no <br className="hidden md:block" />
                 Minha Casa Minha Vida.
               </h2>
-              <img src="/logo-mcmv-2023.webp" alt="Minha Casa Minha Vida" className="w-32 md:w-40 lg:w-48 object-contain" />
+              <img src="/logo-mcmv-2023.webp" alt="Minha Casa Minha Vida" className="absolute w-64 md:w-64 lg:w-80 right-[-30%] md:right-[-10%] lg:right-[-20%] top-1/2 -translate-y-1/2 object-contain z-0 opacity-40 md:opacity-100 pointer-events-none" />
             </div>
             
             <p className="mt-8 text-dominus-muted font-sans font-light max-w-xl text-lg md:text-xl leading-relaxed">
