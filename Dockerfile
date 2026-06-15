@@ -13,17 +13,23 @@ COPY . .
 # Faz o build do front-end Vite
 RUN npm run build
 
-# Etapa 2: Servidor Nginx
-FROM nginx:alpine
+# Etapa 2: Servidor Node.js
+FROM node:20-alpine
 
-# Copia as configurações do Nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
-# Copia os arquivos gerados no build para a pasta pública do Nginx
-COPY --from=builder /app/dist /usr/share/nginx/html
+# Copia os arquivos de dependência
+COPY package*.json ./
 
-# Expõe a porta padrão do Nginx (80)
-EXPOSE 80
+# Instala as dependências de produção (e dotenv para o server.js)
+RUN npm ci --omit=dev && npm install dotenv
 
-# Comando para iniciar o Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Copia o servidor e a build gerada
+COPY server.js ./
+COPY --from=builder /app/dist ./dist
+
+# Expõe a porta que o Node vai usar
+EXPOSE 3000
+
+# Comando para iniciar o servidor
+CMD ["node", "server.js"]
